@@ -1,0 +1,70 @@
+#Elizabeth Austin
+#Student number: 1725049
+#Workshop 7, Computational Mathematics
+
+
+#Question 1
+
+def factRecursiive(n):
+    if n == 0:
+        return 1
+    else:
+        return (n*factRecursiive(n-1))
+
+
+print (factRecursiive(9))
+
+
+#Question 2
+
+def printDigits(n):
+    if n != 0:
+        print (n*str(n))
+        return printDigits(n-1)
+
+    
+(printDigits(7))
+
+
+#Question 3
+
+def printDigits(n):
+    if n != 0:
+        printDigits(n-1)
+        print(n*str(n))
+
+        
+print(printDigits(7))
+
+        
+
+#Question 4
+
+def f(n):
+    if n != 0:
+        f(n-1)
+        print((n*10) + (n-1)*10)
+
+        
+f(7)
+
+
+#Question 5
+
+posNum = int(input("Enter a positive integer\n>"))
+fibonacciTimes = posNum
+number = 0
+count = 0
+if posNum <= 0:
+    print("Invalid characters entered.")
+    posNum = int(input("Enter a positive integer\n>"))
+else:
+    
+    print("The Fibonacci sequence is as follows for the positive integer", posNum, ":")
+    while count < fibonacciTimes:
+        print (number, "")
+        termsy = number + posNum
+        number = posNum
+        posNum = termsy
+        count += 1
+
