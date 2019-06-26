@@ -1,0 +1,164 @@
+
+
+#Elizabeth Austin
+#Student No: 1725049
+#Workshop 9
+
+
+#Question 1)
+
+def letterCounts(text):
+    alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    list_frequencies = []
+    for letter in alphabet:
+        freq = 0
+        for i in text:
+            if i == letter:
+                freq += 1
+        if freq != 0:
+            list_frequencies.append(letter)
+            list_frequencies.append(freq)
+    return list_frequencies
+
+print(letterCounts("another one bites the dust"))
+
+
+#Question 2)
+
+def encode(text, key):
+    alphabet="abcdefghijklmnopqrstuvwxyz "
+    encodeIt = ""
+    for character in text:
+        position = alphabet.find(character)
+        newPosition = (position + key) % 26
+        newCharacter = alphabet[newPosition]
+        encodeIt += newCharacter
+    return encodeIt
+
+print(encode("another one bites the dust", 19))
+
+
+def decode(code, key):
+    alphabet="abcdefghijklmnopqrstuvwxyz "
+    decodeIt = ""
+    for character in code:
+        position = alphabet.find(character)
+        newPosition = (position - key) % 26
+        newCharacter = alphabet[newPosition]
+        decodeIt += newCharacter
+    return decodeIt
+
+print(decode("tghmaxkshgxsubmxlsmaxswnlm", 19))
+
+
+#Question 3)
+
+from string import ascii_uppercase as l
+
+def CypherTable():  
+    return [l[i:]+l[:i] for i in range(len(l))]
+
+##for i in CypherTable().final_table:
+#print(CypherTable())
+print(CypherTable()[13][22])
+
+def encodeVigenere(text, keyWord):
+    #alphabet="abcdefghijklmnopqrstuvwxyz"
+
+
+    encodeIt = ""
+    count = 0
+    #converting text argument to uppercase letters, and assigning to a variable
+    chocolate = text.upper()
+    zec = keyWord.upper()
+    #removing white space from the chocolate variable
+    marmalade = chocolate.replace(" ", "")
+    print(marmalade)
+    #counter for noting how long the keyword argument is
+    for letter in keyWord:
+        count += 1
+    #slicing the marmalade variable of the text argument, so that the total
+    #length of each string is as long as the keyword argument
+    x1 = marmalade[0:(count)]
+    x2 = marmalade[(count):((count)*2)]
+    x3 = marmalade[((count)*2):((count)*3)]
+    #x4 = marmalade[((count)*3):((count)*4)]
+    print (x1, x2, x3) #x4
+    print (zec, zec, zec)
+    textCount=0
+    numberz=[]
+    while textCount < len(text):
+       for a in text:
+          numberz.append(ord(a))
+          count += 1
+    print (numberz)
+    for b in keyWord:
+          print (CypherTable()[a][b])
+    
+
+print(encodeVigenere("another one bites the dust", "freddie"))
+            
+
+
+#Question 4)
+
+def getDigits(s):
+    numbers=""
+    for i in s:
+        if i.isdigit():
+            numbers += i
+    return (numbers)
+
+print(getDigits("h88ey24.i_lo6ve509thE_ca4k7e"))
+print(getDigits("+2.93x**4.2"))
+
+
+#Question 5)
+
+def isValidName(s):
+    invalid="#[].+=-!£$%^&*()?><|\@~:;}{`¬"
+    digits=" 1234567890"
+    valid="1234567890aAbBcCdDeEfFgGHhiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ_"
+    for i in s:
+        for j in invalid:
+            for k in digits:
+                if i[0] == k:
+                    return False
+            for m in valid:
+                if i == j:
+                    return False
+                elif i == m:
+                    return True
+
+print(isValidName("213another one bites the dust"))
+print(isValidName("another one bites the dust"))
+print(isValidName("_another_345445one_bites_the_9454dust"))
+print(isValidName("bDay"))
+print(isValidName("A0"))
+print(isValidName("_a_1"))
+print(isValidName("_1amt"))
+print(isValidName("___"))
+print(isValidName("_"))
+print(isValidName("1a"))
+print(isValidName("#A"))
+print(isValidName("1_a"))
+print(isValidName("[a]"))
+print(isValidName(" ABC"))
+print(isValidName(""))
+print(isValidName("A#"))
+print(isValidName("A-2"))
+print(isValidName("a_5+"))
+
+
+#Question 6)
+
+def getDigits(s):
+    import re
+    if s == "":
+        return None
+    else:
+        return (re.findall("\d+", s))
+        
+print(getDigits("h88ey24.i_lo6ve509thE_ca4k7e"))   
+print(getDigits("+2.93x**4.2"))
+
