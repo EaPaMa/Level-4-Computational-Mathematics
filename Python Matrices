@@ -1,0 +1,100 @@
+#Elizabeth Austin
+#SN: 1725049
+
+#Workshop 5
+
+
+#Question 1):
+
+def matrixSum(m):
+    first = len(m)
+    second = len(m[0])
+    i = 0
+    #iterating through rows
+    for s in range(first):
+        #iterating through columns
+        for b in range(second):
+            i += m[s][b]
+    return (i)
+            
+print(matrixSum([[1, 2, 3,],
+                 [4, 5, 6]]))
+
+
+#Question 2):
+
+def matrixTrace(n):
+    first = len(n)
+    second = len(n[0])
+    i = 0
+    #iterating through rows
+    for t in range(first):
+        #iterating through columns
+        for c in range(second):
+            if t == c:
+                i += n[t][c]
+    return(i)
+
+print(matrixTrace([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]]))
+
+
+
+#Question 3):
+
+def sumVectors(x, y):
+    result = 0
+    new_vector = []
+    #iterating thruogh rows
+    for i in range(len(x)):
+        #iterating through columns
+        for k in range(len(x[0])):
+            s=0
+            result = (x[i][k] * y[s+1])
+            new_vector += [result]
+    return(new_vector)
+
+print(sumVectors([[12,7,6],
+                  [5,1,9],
+                  [1,2,3]], [6,3,1,9,8,2,1,8,1]))
+
+
+
+#Question 4):
+
+
+def sumMatrice(x, y):
+    result = 0
+    new_matrix1 = []
+    new_matrix2 = []
+    new_matrix3 = []
+    count = 0
+    #iterating thruogh first Matrix rows
+    for i in range(len(x)):
+        #iterating through first Matrix columns
+        for k in range(len(x[0])):
+            #iterating through second Matrix rows
+            for a in range(len(y)):
+                #iterating through second Matrix columns
+                for b in range(len(y[0])):
+                    #multiplication of first Matrix by the second matrix, per index number
+                    result = (x[i][k] * y[a][b])
+                    count +=1
+                    #inserting the result into the matrix rows (lists)
+                    if count <= 3:
+                        new_matrix1 += [result]
+                    elif count > 3 and count <= 6:
+                        new_matrix2 += [result]
+                    elif count > 6 and count <= 9:
+                        new_matrix3 += [result]
+
+    return(new_matrix1,new_matrix2,new_matrix3)
+
+print(sumMatrice([[12,7,6],
+                  [5,1,9],
+                  [1,2,3]], [[5,5,9],
+                            [3,2,1],
+                            [4,4,4]]))
+
+
